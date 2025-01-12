@@ -1,0 +1,10 @@
+import "hashes/sha256/512bit.zok" as sha256;
+import "utils/casts/bool_256_to_u32_8.zok" as bool_to_u32;
+import "utils/casts/u32_8_to_bool_256.zok" as u32_to_bool;
+
+def main(bool[256] input) -> u32[8]{
+
+	//bool[256] dummyblock = [1, ...[0; 246], ...[1, 0, 0, 0, 0, 0, 0, 0, 0]];
+	u32[8] dummydumm = [2147483648,...[0;6],256];
+return sha256(bool_to_u32(input), dummydumm);
+}
